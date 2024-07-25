@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Avancée</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .btn {
+            background-color: #444;
+            color: white;
+            border-radius: 0.5rem;
+            height: 4rem;
+            font-size: 1.25rem;
+        }
+        .btn-op {
+            background-color: #ff9500;
+        }
+        .btn-special {
+            background-color: #555;
+        }
+        .btn-equal {
+            background-color: #ff9500;
+        }
+        .display {
+            background-color: #222;
+            color: white;
+            font-size: 2rem;
+            border-radius: 0.5rem;
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-4 w-96">
+        <input type="text" id="display" class="w-full h-16 text-4xl p-2 mb-4 display text-right" disabled>
+
+        <div class="calc-grid">
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn btn-op" onclick="appendToDisplay('+')">+</button>
+            <button class="btn btn-special" onclick="appendToDisplay('sqrt(')">√</button>
+            <button class="btn btn-special" onclick="appendToDisplay('^2')">x²</button>
+            <button class="btn btn-special" onclick="appendToDisplay('mod(')">mod</button>
+            <button class="btn btn-special" onclick="appendToDisplay('π')">π</button>
+
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn btn-op" onclick="appendToDisplay('-')">-</button>
+            <button class="btn btn-special" onclick="appendToDisplay('exp(')">exp</button>
+            <button class="btn btn-special" onclick="appendToDisplay('log(')">log</button>
+            <button class="btn btn-special" onclick="appendToDisplay('ln(')">ln</button>
+            <button class="btn btn-special" onclick="appendToDisplay('gcd(')">gcd</button>
+
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn btn-op" onclick="appendToDisplay('*')">×</button>
+            <button class="btn btn-special" onclick="appendToDisplay('acos(')">acos</button>
+            <button class="btn btn-special" onclick="appendToDisplay('asin(')">asin</button>
+            <button class="btn btn-special" onclick="appendToDisplay('atan(')">atan</button>
+            <button class="btn btn-special" onclick="appendToDisplay('lcm(')">lcm</button>
+
+            <button class="btn col-span-2" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn btn-special" onclick="clearDisplay()">C</button>
+            <button class="btn btn-special" onclick="clearDisplay()">AC</button>
+            <button class="btn btn-equal col-span-4" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
